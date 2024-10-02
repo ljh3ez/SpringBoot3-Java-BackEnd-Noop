@@ -31,12 +31,12 @@ public class ArticleController {
         log.info(form.toString());
 //        System.out.println(form.toString());
 
-        //TODO 1. DTO를 Entity로 변환
+        // TODO 1. DTO를 Entity로 변환
         Article article = form.toEntity();
         log.info(article.toString());
 //        System.out.println(article.toString());
 
-        //TODO 2. Repository로 Entity를 DB에 저장
+        // TODO 2. Repository로 Entity를 DB에 저장
         Article saved = articleRepository.save(article);
         log.info(saved.toString());
 //        System.out.println(saved.toString());
@@ -48,11 +48,11 @@ public class ArticleController {
     public String show (@PathVariable Long id, Model model) {
         log.info("id = " + id);
 
-        //TODO 1. id를 조회해 데이터 가져오기
+        // TODO 1. id를 조회해 데이터 가져오기
         Article articleEntity = articleRepository.findById(id).orElse(null);
-        //TODO 2. 모델에 데이터 등록하기
+        // TODO 2. 모델에 데이터 등록하기
         model.addAttribute("article", articleEntity);
-        //TODO 3. 뷰 페이지 반환하기
+        // TODO 3. 뷰 페이지 반환하기
         return "articles/show";
     };
 
